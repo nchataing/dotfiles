@@ -37,7 +37,7 @@ vim.keymap.set('n', '<Leader>w', ':w<CR>')
 vim.keymap.set('n', '<Leader>q', ':q<CR>')
 
 -- remove trailing whitespaces
-vim.keymap.set('n', '<Leader><Tab>', ':%s/\\s\\+$//g<CR>:w<CR>')
+vim.keymap.set('n', '<Leader><Tab>', ':%s/\\s\\+$//g<CR>:w<CR>:noh<CR>')
 
 -- open in same directory
 vim.keymap.set('n', ',e', ':e <C-R>=expand("%:p:h") . "/" <CR>')
