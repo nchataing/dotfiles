@@ -16,3 +16,19 @@
 - **tmux**
     + my main usage consists in having multiple sessions for each different contexts I work on; and switching between them with a fzf based script (see `tmux-switch-session`)
     + should be higher than version 3.3 for fzf integration (floating menus)
+
+
+
+# Laptop configuration
+
+## Lenovo Laptop - Charge Thresholds Setup (Ubuntu)
+
+1. Install TLP:
+   `sudo apt install tlp tlp-rdw`
+
+2. Edit TLP config:
+   `sudo -e /etc/tlp.conf`
+   Set `START_CHARGE_THRESH_BAT0=75` and `STOP_CHARGE_THRESH_BAT0=80`
+
+3. Apply and restart:
+   `sudo tlp start`

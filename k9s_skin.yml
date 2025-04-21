@@ -1,0 +1,88 @@
+k9s:
+  body:
+    fgColor: "#202020"
+    bgColor: "#e0e0e0"
+    logoColor: "#5060a0"
+
+  prompt:
+    fgColor: "#202020"
+    bgColor: "#e0e0e0"
+    suggestColor: "#80b080"
+
+  info:
+    fgColor: "#202020"
+    bgColor: "#e0e0e0"
+    sectionColor: "#7080c0"
+
+  help:
+    fgColor: "#202020"
+    bgColor: "#e0e0e0"
+    sectionColor: "#509090"
+    keyColor: "#a09060"
+    numKeyColor: "#c07070"
+
+  frame:
+    title:
+      fgColor: "#202020" # Dark gray for the title text
+      bgColor: "#e0e0e0" # Light gray background for the title bar
+      highlightColor: "#509090" # Teal for highlighted or focused title text
+      counterColor: "#80b080" # Light green for counter values (e.g., pod counts)
+      filterColor: "#a09060" # Yellow-brown for filter text
+    border:
+      fgColor: "#c0c0c0"
+      focusColor: "#509090"
+    menu:
+      fgColor: "#202020"
+      keyColor: "#a05050"
+      numKeyColor: "#c07070"
+    crumbs:
+      fgColor: "#202020"
+      bgColor: "#e0e0e0" # This is for breadcrumb sections, e.g., current path
+      activeColor: "#5060a0"
+    status:
+      newColor: "#80b080"
+      modifyColor: "#c07070"
+      addColor: "#609060"
+      errorColor: "#a05050"
+      highlightColor: "#b070b0"
+      killColor: "#905090"
+      completedColor: "#7080c0"
+    header:
+      fgColor: "#202020"
+      bgColor: "#e0e0e0"
+      highlightColor: "#509090"
+
+  views:
+    table:
+      fgColor: "#202020"
+      bgColor: "#e0e0e0"
+      header:
+        fgColor: "#202020"
+        bgColor: "#e0e0e0"
+        sorterColor: "#509090"
+    xray:
+      fgColor: "#202020"
+      bgColor: "#e0e0e0"
+      cursorColor: "#c0b080"
+      graphicColor: "#b070b0"
+    charts:
+      bgColor: "#e0e0e0"
+      chartBgColor: "#c0c0c0"
+      dialBgColor: "#d0d0d0"
+      chartBorderColor: "#101010"
+    logs:
+      # Log viewer customization
+      fgColor: "#202020" # Text color for logs (dark gray)
+      bgColor: "#e0e0e0" # Background color for logs
+      highlightColor: "#509090" # Highlight color for important logs (teal)
+      errorColor: "#a05050" # Error log color (red)
+      warnColor: "#a09060" # Warning log color (yellow)
+    yaml:
+      keyColor: "#202020" # Dark gray for YAML keys (e.g., 'key:')
+      colonColor: "#509090" # Teal for colons between key and value (e.g., ':')
+      valueColor: "#80b080" # Light green for values (e.g., 'value')
+      stringColor: "#c07070" # Light red for string values
+      numberColor: "#7080c0" # Light blue for numeric values
+      boolColor: "#a09060" # Yellow-brown for boolean values
+      nullColor: "#c0c0c0" # Light gray for 'null' or empty values
+
