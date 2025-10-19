@@ -28,9 +28,20 @@ vim.cmd([[autocmd TermOpen * setlocal norelativenumber]])
 vim.api.nvim_create_augroup("Override", { clear = true })
 
 -- typescript override
+-- vim.api.nvim_create_autocmd("FileType", {
+--     group = "Override",
+--     pattern = "javascript,typescript,typescriptreact",
+--     callback = function()
+--         vim.bo.expandtab = true
+--         vim.bo.shiftwidth = 2
+--         vim.bo.tabstop = 2
+--     end,
+-- })
+
+-- ocaml override
 vim.api.nvim_create_autocmd("FileType", {
     group = "Override",
-    pattern = "javascript,typescript,typescriptreact",
+    pattern = "ocaml",
     callback = function()
         vim.bo.expandtab = true
         vim.bo.shiftwidth = 2

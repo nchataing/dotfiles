@@ -47,3 +47,5 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 vim.keymap.set('n', '<Leader>xt', ':split term://zsh<CR>i')
 vim.keymap.set('n', '<Leader>vt', ':vsplit term://zsh<CR>i')
 
+-- remap indivisible space to space
+vim.keymap.set('i', ' ', ' ')
