@@ -128,8 +128,16 @@ require("lazy").setup({
         vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       local servers = {
-        ts_ls = {},
-        zls = {},
+        tsgo = {
+          settings = {
+            typescript = {
+              preferences = {
+                importModuleSpecifierPreference = "non-relative",
+              },
+            },
+          },
+        },
+
         clangd = {
           filetypes = { "c", "cpp" },
         },
@@ -149,7 +157,9 @@ require("lazy").setup({
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
-      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+      require("mason-tool-installer").setup({
+        ensure_installed = vim.list_extend(ensure_installed, { "prettier" }),
+      })
 
       require("mason-lspconfig").setup({
         ensure_installed = {},
@@ -159,13 +169,20 @@ require("lazy").setup({
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
+            -- certain features of an LSP
             server.capabilities =
               vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
             require("lspconfig")[server_name].setup(server)
           end,
         },
       })
+
+      -- ZLS is managed manually (not through Mason) to use a local build
+      vim.lsp.config("zls", {
+        cmd = { vim.fn.expand("~/.zig/zls") },
+        capabilities = capabilities,
+      })
+      vim.lsp.enable("zls")
 
       -- Show line diagnostics automatically in hover window
       vim.diagnostic.config({ virtual_text = false })
@@ -226,6 +243,10 @@ require("lazy").setup({
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
+        local disable_filetypes = { c = true, cpp = true }
+        if disable_filetypes[vim.bo[bufnr].filetype] then
+          return false
+        end
         return {
           timeout_ms = 500,
           lsp_format = "fallback",
@@ -233,15 +254,18 @@ require("lazy").setup({
       end,
       formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { "prettierd", stop_after_first = true },
-        javascriptreact = { "prettierd", stop_after_first = true },
-        typescript = { "prettierd", stop_after_first = true },
-        typescriptreact = { "prettierd", stop_after_first = true },
-        json = { "prettierd", stop_after_first = true },
-        markdown = { "prettierd", stop_after_first = true },
-        c = { "clang-format-12" },
-        cpp = { "clang-format-12" },
-        proto = { "clang-format-12" },
+        javascript = { "biome-check", stop_after_first = true },
+        javascriptreact = { "biome-check", stop_after_first = true },
+        typescript = { "biome-check", stop_after_first = true },
+        typescriptreact = { "biome-check", stop_after_first = true },
+        json = { "biome-check", stop_after_first = true },
+        jsonc = { "biome-check", stop_after_first = true },
+        markdown = { "biome-check", stop_after_first = true },
+        html = { "prettier" },
+        css = { "prettier" },
+        -- c = { "clang-format-11" },
+        -- cpp = { "clang-format-11" },
+        -- proto = { "clang-format-11" },
       },
     },
   },
@@ -257,7 +281,7 @@ require("lazy").setup({
 
       -- Disable Copilot in specific git repositories
       local disabled_repos = {
-        "/home/nchataing/w/hsm",
+        vim.fn.expand("~/w/hsm"),
       }
 
       local function is_in_disabled_repo()

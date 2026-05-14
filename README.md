@@ -16,7 +16,13 @@
 - **tmux**
     + my main usage consists in having multiple sessions for each different contexts I work on; and switching between them with a fzf based script (see `tmux-switch-session`)
     + should be higher than version 3.3 for fzf integration (floating menus)
+- **zsh**: shared shell setup lives in `zshrc`; machine-local secrets and one-off overrides should live in `~/.zshrc.local` (see `zshrc.local.example`).
+- **pi**: global settings, prompt templates, skills and notification extension under `pi/agent/`.
+- **desktop utilities**: dunst, ghostty, i3, X session startup, taskwarrior, gh-dash, k9s, Vim compatibility snippets and tmux session seeds are gathered in their matching directories/files.
 
+## Local secrets policy
+
+Do not commit real tokens, cookies, passwords, private keys, kube configs or SSH/GPG material. Keep them in local-only files such as `~/.zshrc.local` or tool-specific secret stores.
 
 
 # Laptop configuration

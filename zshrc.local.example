@@ -1,0 +1,50 @@
+# Copy to ~/.zshrc.local and fill locally.
+# This file is intentionally an example: do not commit real tokens/cookies/passwords.
+
+# Package registries / artifact stores
+export PYPI_DEPLOY_TOKEN=""
+export JFROG_USER=""
+export JFROG_TOKEN=""
+export JFROG_ORANGE_TOKEN=""
+
+# Ledger / Revault secrets
+export ETH_TOKEN=""
+export VAULT_HSM_CLIENT_CERT_PWD=""
+
+# GitHub
+export GH_TOKEN=""
+export GH_ENTERPRISE_TOKEN=""
+# alias ghe='GH_HOST=git.orange.ledgerlabs.net gh'
+
+# Jira
+export JIRA_API_TOKEN=""
+
+# Datadog
+export DD_API_KEY=""
+export DD_APP_KEY=""
+
+# Slack
+export SLACK_TOKEN=""
+export SLACK_COOKIE=""
+export SLACK_APP_TOKEN=""
+export SLACK_OAUTH_TOKEN=""
+
+# Chain scanner APIs
+export SCAN_ARBISCAN_API_KEY=""
+export SCAN_ASTAR_BLOCKSCOUT_API_KEY=""
+export SCAN_AVALANCHE_OKLINK_API_KEY=""
+export SCAN_BASESCAN_API_KEY=""
+export SCAN_BSCSCAN_API_KEY=""
+export SCAN_BTTCSCAN_API_KEY=""
+export SCAN_CRONOSCAN_API_KEY=""
+export SCAN_ETHERSCAN_API_KEY=""
+export SCAN_ETHPLORER_API_KEY=""
+export SCAN_FTMSCAN_API_KEY=""
+export SCAN_HELIUS_API_KEY=""
+export SCAN_LINEASCAN_API_KEY=""
+export SCAN_MOONSCAN_API_KEY=""
+export SCAN_OPTIMISM_API_KEY=""
+export SCAN_POLYSCAN_API_KEY=""
+export SCAN_ROOTSTOCK_BLOCKSCOUT_API_KEY=""
+export SCAN_SCROLLSCAN_API_KEY=""
+export SCAN_TRONSCAN_TRC20_API_KEY=""
